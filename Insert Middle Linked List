@@ -1,0 +1,58 @@
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+public class InsertMidLL{
+
+    Node head = null;
+     
+    void insert(int data){
+        Node newnode = new Node(data);
+        newnode.next=head;
+        head = newnode;
+    }
+    void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        System.out.println();
+    }
+    void insertmid(int index,int data){
+        if(index<0){
+            System.out.println("error");
+            return;
+        }
+        Node newnode = new Node(data);
+        Node temp=head;
+        for(int i=0;i<index-1;i++){
+            temp=temp.next;
+        }
+        newnode.next=temp.next;
+        temp.next=newnode;
+    }
+    void display1(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        
+    }
+    public static void main(String[] args) {
+        InsertMidLL ob = new InsertMidLL();
+        ob.insert(1);
+        ob.insert(2);
+        ob.insert(3);
+        ob.insert(4);
+        ob.display();
+
+        ob.insertmid(2, 5);
+        ob.display1();
+    }
+}
