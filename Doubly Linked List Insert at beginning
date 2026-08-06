@@ -1,0 +1,47 @@
+class Node{
+    int data;
+    Node prev;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.prev=null;
+        this.next=null;
+    }
+}
+public class Ddinsert_1 {
+    
+    Node head;
+    Node tail;
+    void insert(int data){
+        Node newnode = new Node(data);
+        if(head==null){
+            head=tail=newnode;
+        }
+        else{
+            newnode.next=head;
+            head.prev=newnode;
+            head=newnode;
+        }
+
+    }
+    void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        
+    }
+
+
+    public static void main(String[] args){
+
+        Ddinsert_1 ob = new Ddinsert_1();
+        ob.insert(1);
+        ob.insert(2);
+        ob.insert(3);
+        ob.insert(4);
+
+        ob.display();
+    }
+}
